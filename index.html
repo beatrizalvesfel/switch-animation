@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Switch animation dark mode</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="sun-box"><div class="sun"></div> </div>
+            <div class="moon-box"><div class="moon"></div></div>
+            <div class="btn">
+                <div class="btn_background">
+                    <div class="btn_face">
+                        <div class="btn_animation">
+                            <span class="btn_eye-left"></span>
+                            <span class="btn_eye-right"></span>
+                            <span class="btn_mouth"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $('.btn_background').on('click', function() {
+            $('.container').toggleClass('color');
+            $('.btn_background').toggleClass('color');
+            $('.sun-box').toggleClass('move');
+            $('.moon-box').toggleClass('move');
+            
+            $('.btn_face').toggleClass('move');
+            $('.btn_eye-left, .btn_eye-right').toggleClass(function(){
+                return $(this).is('.open, .close') ? 'open close' : 'close';
+            });
+            $('.btn_mouth').toggleClass('close');
+            $('.btn_animation').toggleClass(function(){
+                return $(this).is('.move-reverse, .move') ? 'move-reverse move' : 'move';
+            });
+        });
+        </script>
+    </body>
+</html>
